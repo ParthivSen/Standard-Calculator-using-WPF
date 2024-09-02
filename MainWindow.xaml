@@ -1,0 +1,157 @@
+﻿<Window x:Class="WPFTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFTest"
+        mc:Ignorable="d"
+        Title="Calculator" 
+        Height="541" Width="335" 
+        MinHeight="541" MinWidth="335" 
+        Topmost="True"
+        Background="#f5f6f6" 
+        Icon="C:\Users\parthivs\Downloads\CalcIcon.ico">
+    
+        
+    <Grid x:Name="Calculator" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="1" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="42"/>
+                        <ColumnDefinition Width="239"/>
+                        <ColumnDefinition Width="44"/>
+                    </Grid.ColumnDefinitions>
+                    <Button 
+            x:Name="MainMenuBtn"
+            Grid.Column="0" 
+            Style="{StaticResource MemBtn}"
+            FontSize="16"
+            HorizontalAlignment="Center" Width="30"/>
+
+                    <TextBlock 
+            Grid.Column="1" 
+            FontSize="24" 
+            FontFamily="Segoe UI Variable"
+            FontWeight="SemiBold">Standard</TextBlock>
+
+                    <Button 
+            x:Name="RcntHistBtn"
+            Grid.Column="2" 
+            Style="{StaticResource MemBtn}"
+            Margin="1,0,15,0"
+            HorizontalContentAlignment="Center">
+                        <Image Width="20" Source="C:\Users\parthivs\Downloads\History.png"/>
+                    </Button>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Margin="5,0,5,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="36"/>
+                        <RowDefinition Height="64"/>
+                    </Grid.RowDefinitions>
+                    <TextBox 
+                        x:Name="TxtRcnt" 
+                        Grid.Row="0"
+                        TextAlignment="Right"
+                        FontSize="16"
+                        Background="#f5f6f6"
+                        BorderThickness="0"
+                        FontFamily="Segoe UI Variable"
+                        IsEnabled="False"
+                        FontWeight="Light"></TextBox>
+                    
+                    <TextBox 
+                        x:Name="TxtMain" 
+                        Grid.Row="1"
+                        TextAlignment="Right"
+                        FontSize="48"
+                        Background="#f5f6f6"
+                        BorderThickness="0"
+                        IsReadOnly="True"
+                        FontFamily="Segoe UI Variable"
+                        FontWeight="SemiBold">0</TextBox>
+
+                </Grid>
+            </StackPanel>
+            <Grid Grid.Row="2" Margin="3,3,3,3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button Style="{StaticResource MemBtn}" Grid.Column="0" Margin="3" IsEnabled="False" Foreground="Gray">MC</Button>
+                <Button Style="{StaticResource MemBtn}" Grid.Column="1" Margin="3" IsEnabled="False" Foreground="Gray">MR</Button>
+                <Button Style="{StaticResource MemBtn}" Grid.Column="2" Margin="3">M+</Button>
+                <Button Style="{StaticResource MemBtn}" Grid.Column="3" Margin="3">M-</Button>
+                <Button Style="{StaticResource MemBtn}" Grid.Column="4" Margin="3" IsEnabled="False" Foreground="Gray">MS</Button>
+                <Button x:Name="DownMBtn" Style="{StaticResource MemBtn}" Grid.Column="5" Margin="3" IsEnabled="False" Foreground="Gray">M</Button>
+            </Grid>
+            <Grid Grid.Row="3" Margin="2,-5,2,2" Grid.RowSpan="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <!--Row 0-->
+                <Button x:Name="BtnPercent" Click="BtnPercent_Click" Grid.Column="0" Style ="{StaticResource MathOpsBtn}" Grid.Row="0" Margin="2" Effect="{StaticResource Shadow}">%</Button>
+                <Button x:Name="BtnCE" Click="BtnCE_Click" Grid.Column="1" Style ="{StaticResource MathOpsBtn}" Grid.Row="0" Margin="2" Effect="{StaticResource Shadow}">CE</Button>
+                <Button x:Name="BtnC" Click="BtnC_Click" Grid.Column="2" Style ="{StaticResource MathOpsBtn}" Grid.Row="0" Margin="2" Effect="{StaticResource Shadow}">C</Button>
+                <Button x:Name="BtnBack" Click="BtnBack_Click" Grid.Column="3" Style ="{StaticResource MathOpsBtn}" Grid.Row="0" Margin="2" Effect="{StaticResource Shadow}"></Button>
+
+                <!--Row 1-->
+                <Button x:Name="BtnFrac" Click="BtnFrac_Click" Grid.Column="0" Style ="{StaticResource MathOpsBtn}" Grid.Row="1" Margin="2" Effect="{StaticResource Shadow}">⅟ x</Button>
+                <Button x:Name="BtnSqre" Click="BtnSqre_Click" Grid.Column="1" Style ="{StaticResource MathOpsBtn}" Grid.Row="1" Margin="2" Effect="{StaticResource Shadow}">x²</Button>
+                <Button x:Name="BtnSqrt" Click="BtnSqrt_Click" Grid.Column="2" Style ="{StaticResource MathOpsBtn}" Grid.Row="1" Margin="2" Effect="{StaticResource Shadow}">√x</Button>
+                <Button x:Name="BtnDivide" Click="BtnDivide_Click" Grid.Column="3" Style ="{StaticResource MathOpsBtn}" FontSize="18" Grid.Row="1" Margin="2" Effect="{StaticResource Shadow}">÷</Button>
+
+                <!--Row 2-->
+                <Button x:Name="BtnNum7" Click="BtnNum7_Click" Grid.Column="0" Style ="{StaticResource NumPadBtn}" Grid.Row="2" Margin="2" Effect="{StaticResource Shadow}">7</Button>
+                <Button x:Name="BtnNum8" Click="BtnNum8_Click" Grid.Column="1" Style ="{StaticResource NumPadBtn}" Grid.Row="2" Margin="2" Effect="{StaticResource Shadow}">8</Button>
+                <Button x:Name="BtnNum9" Click="BtnNum9_Click" Grid.Column="2" Style ="{StaticResource NumPadBtn}" Grid.Row="2" Margin="2" Effect="{StaticResource Shadow}">9</Button>
+                <Button x:Name="BtnMultiply" Click="BtnMultiply_Click" Grid.Column="3" Style ="{StaticResource MathOpsBtn}" FontSize="18" Grid.Row="2" Margin="2" Effect="{StaticResource Shadow}">×</Button>
+
+                <!--Row 3-->
+                <Button x:Name="BtnNum4" Click="BtnNum4_Click" Grid.Column="0" Style ="{StaticResource NumPadBtn}" Grid.Row="3" Margin="2" Effect="{StaticResource Shadow}">4</Button>
+                <Button x:Name="BtnNum5" Click="BtnNum5_Click" Grid.Column="1" Style ="{StaticResource NumPadBtn}" Grid.Row="3" Margin="2" Effect="{StaticResource Shadow}">5</Button>
+                <Button x:Name="BtnNum6" Click="BtnNum6_Click" Grid.Column="2" Style ="{StaticResource NumPadBtn}" Grid.Row="3" Margin="2" Effect="{StaticResource Shadow}">6</Button>
+                <Button x:Name="BtnMinus" Click="BtnMinus_Click" Grid.Column="3" Style ="{StaticResource MathOpsBtn}" FontSize="18" Grid.Row="3" Margin="2" Effect="{StaticResource Shadow}">-</Button>
+
+                <!--Row 4-->
+                <Button x:Name="BtnNum1" Click="BtnNum1_Click" Grid.Column="0" Style ="{StaticResource NumPadBtn}" Grid.Row="4" Margin="2" Effect="{StaticResource Shadow}">1</Button>
+                <Button x:Name="BtnNum2" Click="BtnNum2_Click"  Grid.Column="1" Style ="{StaticResource NumPadBtn}" Grid.Row="4" Margin="2" Effect="{StaticResource Shadow}">2</Button>
+                <Button x:Name="BtnNum3" Click="BtnNum3_Click" Grid.Column="2" Style ="{StaticResource NumPadBtn}" Grid.Row="4" Margin="2" Effect="{StaticResource Shadow}">3</Button>
+                <Button x:Name="BtnPlus" Click="BtnPlus_Click" Grid.Column="3" Style ="{StaticResource MathOpsBtn}" FontSize="18" Grid.Row="4" Margin="2" Effect="{StaticResource Shadow}">+</Button>
+
+                <!--Row 5-->
+                <Button x:Name="BtnNegate" Click="BtnNegate_Click" Grid.Column="0" Style ="{StaticResource MathOpsBtn}" FontSize="18" Grid.Row="5" Margin="2" Effect="{StaticResource Shadow}">+/-</Button>
+                <Button x:Name="BtnNum0" Click="BtnNum0_Click" Grid.Column="1" Style ="{StaticResource NumPadBtn}" Grid.Row="5" Margin="2" Effect="{StaticResource Shadow}">0</Button>
+                <Button x:Name="BtnDecimal" Click="BtnDecimal_Click" Grid.Column="2" Style ="{StaticResource MathOpsBtn}" FontSize="18" Grid.Row="5" Margin="2" Effect="{StaticResource Shadow}">.</Button>
+                <Button x:Name="BtnEqual" Click="BtnEqual_Click" Grid.Column="3" Style ="{StaticResource EqualBtnStyle}" Grid.Row="5" Margin="2" Effect="{StaticResource Shadow}">=</Button>
+
+            </Grid>
+        
+        </Grid>
+
+
+</Window>
